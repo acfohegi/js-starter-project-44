@@ -13,6 +13,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "readline-sync": "1.4.10"
+    "readline-sync": "1.4.10",
+    "eslint": "*",
+    "eslint-config-airbnb-base": "*", 
+    "eslint-plugin-import": "*"
   }
 }
