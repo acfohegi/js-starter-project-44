@@ -31,8 +31,8 @@ const getExpression = () => {
 
   const result = numbers[missingElementAt];
   numbers[missingElementAt] = '..';
-  const string = numbers.join(' ');
-  return { string, result };
+  const expression = numbers.join(' ');
+  return { expression, result };
 };
 
 const game = () => {
