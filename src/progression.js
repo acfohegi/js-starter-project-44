@@ -1,6 +1,9 @@
 import readlineSync from 'readline-sync';
+import {
+  getQuestion, getNotCorrect, correct, getWinMessage, getRandomNumber,
+} from './index.js';
 
-const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+const question = '`What number is missing in the progression?';
 
 const getFirstNumber = () => getRandomNumber(1, 100);
 
@@ -32,11 +35,6 @@ const getExpression = () => {
   return { string, result };
 };
 
-const getQuestion = (expression) => `What number is missing in the progression?\nQuestion: ${expression.string}\nYour answer: `;
-const getNotCorrect = (userAnswer, correctAnswer, name) => `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${name}!`;
-const correct = 'Correct!';
-const getWinMessage = (name) => `Congratulations, ${name}!`;
-
 const game = () => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
@@ -46,7 +44,7 @@ const game = () => {
 
   while (correctCount < 3) {
     const expression = getExpression();
-    const userAnswer = readlineSync.question(getQuestion(expression));
+    const userAnswer = readlineSync.question(getQuestion(question, expression));
     const correctAnswer = expression.result.toString();
     if (userAnswer === correctAnswer) {
       correctCount += 1;

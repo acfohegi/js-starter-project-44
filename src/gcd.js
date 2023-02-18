@@ -1,4 +1,9 @@
 import readlineSync from 'readline-sync';
+import {
+  getQuestion, getNotCorrect, correct, getWinMessage, getRandomNumber,
+} from './index.js';
+
+const question = 'Find the greatest common divisor of given numbers.';
 
 const findGCD = (numbers) => {
   let result = 1;
@@ -12,8 +17,8 @@ const findGCD = (numbers) => {
 };
 
 const getNumbers = () => {
-  const first = Math.floor(Math.random() * 100) + 1;
-  const second = Math.floor(Math.random() * 100) + 1;
+  const first = getRandomNumber(1, 100);
+  const second = getRandomNumber(1, 100);
   return [first, second];
 };
 
@@ -22,11 +27,6 @@ const getExpression = () => {
   const result = findGCD(numbers);
   return { numbers, result };
 };
-
-const getQuestion = (numbers) => `Find the greatest common divisor of given numbers.\nQuestion: ${numbers[0]} ${numbers[1]}\nYour answer: `;
-const getNotCorrect = (userAnswer, correctAnswer, name) => `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${name}!`;
-const correct = 'Correct!';
-const getWinMessage = (name) => `Congratulations, ${name}!`;
 
 const game = () => {
   console.log('Welcome to the Brain Games!');
@@ -37,7 +37,7 @@ const game = () => {
 
   while (correctCount < 3) {
     const expression = getExpression();
-    const userAnswer = readlineSync.question(getQuestion(expression.numbers));
+    const userAnswer = readlineSync.question(getQuestion(question, expression));
     const correctAnswer = expression.result.toString();
     if (userAnswer === correctAnswer) {
       correctCount += 1;

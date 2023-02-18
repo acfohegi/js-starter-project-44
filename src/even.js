@@ -1,6 +1,11 @@
 import readlineSync from 'readline-sync';
+import {
+  getQuestion, getNotCorrect, correct, getWinMessage, getRandomNumber,
+} from './index.js';
 
-const getNumber = () => Math.floor(Math.random() * 100) + 1;
+const question = 'Answer "yes" if the number is even, otherwise answer "no"';
+
+const getNumber = () => getRandomNumber(1, 100);
 const isEven = (num) => {
   if (num % 2 === 0) {
     return true;
@@ -8,10 +13,11 @@ const isEven = (num) => {
   return false;
 };
 
-const getQuestion = (num) => `Answer "yes" if the number is even, otherwise answer "no".\nQuestion: ${num}\nYour answer: `;
-const getNotCorrect = (userAnswer, correctAnswer, name) => `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${name}!`;
-const correct = 'Correct!';
-const getWinMessage = (name) => `Congratulations, ${name}!`;
+const getExpression = () => {
+  const number = getNumber();
+  const result = isEven(number) ? 'yes' : 'no';
+  return { number, result };
+};
 
 const game = () => {
   console.log('Welcome to the Brain Games!');
@@ -21,9 +27,9 @@ const game = () => {
   let correctCount = 0;
 
   while (correctCount < 3) {
-    const number = getNumber();
-    const userAnswer = readlineSync.question(getQuestion(number));
-    const correctAnswer = isEven(number) ? 'yes' : 'no';
+    const expression = getExpression();
+    const userAnswer = readlineSync.question(getQuestion(question, expression));
+    const correctAnswer = expression.result;
     if (userAnswer === correctAnswer) {
       correctCount += 1;
       console.log(correct);
