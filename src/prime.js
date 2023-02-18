@@ -6,7 +6,7 @@ const getNumber = () => getRandomNumber(1, 100);
 
 const isPrime = (num) => {
   if (num > 1) {
-    for (let divider = 2; divider <= num/2; divider += 1) {
+    for (let divider = 2; divider <= num / 2; divider += 1) {
       if (num % divider === 0) {
         return 'no';
       }
@@ -42,8 +42,8 @@ const game = () => {
       console.log(correct);
     }
     if (userAnswer !== correctAnswer) {
-      correctCount = 0;
       console.log(getNotCorrect(userAnswer, correctAnswer, name));
+      return;
     }
   }
   console.log(getWinMessage(name));

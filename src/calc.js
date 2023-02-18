@@ -20,11 +20,11 @@ const getExpression = () => {
   let string;
   let result;
   if (operation === 'sum') {
-    string = `${numbers[0]}+${numbers[1]}`;
+    string = `${numbers[0]} + ${numbers[1]}`;
     result = numbers[0] + numbers[1];
   }
   if (operation === 'multiplication') {
-    string = `${numbers[0]}*${numbers[1]}`;
+    string = `${numbers[0]} * ${numbers[1]}`;
     result = numbers[0] * numbers[1];
   }
   return { string, result };
@@ -51,8 +51,8 @@ const game = () => {
       console.log(correct);
     }
     if (userAnswer !== correctAnswer) {
-      correctCount = 0;
       console.log(getNotCorrect(userAnswer, correctAnswer, name));
+      return;
     }
   }
   console.log(getWinMessage(name));

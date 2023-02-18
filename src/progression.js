@@ -53,8 +53,8 @@ const game = () => {
       console.log(correct);
     }
     if (userAnswer !== correctAnswer) {
-      correctCount = 0;
       console.log(getNotCorrect(userAnswer, correctAnswer, name));
+      return;
     }
   }
   console.log(getWinMessage(name));
