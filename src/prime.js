@@ -19,9 +19,9 @@ const isPrime = (num) => {
 };
 
 const getExpression = () => {
-  const number = getNumber();
-  const result = isPrime(number);
-  return { number, result };
+  const expression = getNumber();
+  const result = isPrime(expression);
+  return { expression, result };
 };
 
 const game = () => {

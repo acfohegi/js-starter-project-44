@@ -22,17 +22,17 @@ const getOperation = () => {
 const getExpression = () => {
   const numbers = getNumbers();
   const operation = getOperation();
-  let string;
+  let expression;
   let result;
   if (operation === 'sum') {
-    string = `${numbers[0]} + ${numbers[1]}`;
+    expression = `${numbers[0]} + ${numbers[1]}`;
     result = numbers[0] + numbers[1];
   }
   if (operation === 'multiplication') {
-    string = `${numbers[0]} * ${numbers[1]}`;
+    expression = `${numbers[0]} * ${numbers[1]}`;
     result = numbers[0] * numbers[1];
   }
-  return { string, result };
+  return { expression, result };
 };
 
 const game = () => {

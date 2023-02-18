@@ -23,9 +23,9 @@ const getNumbers = () => {
 };
 
 const getExpression = () => {
-  const numbers = getNumbers();
-  const result = findGCD(numbers);
-  return { numbers, result };
+  const expression = getNumbers();
+  const result = findGCD(expression);
+  return { expression, result };
 };
 
 const game = () => {

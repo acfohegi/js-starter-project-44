@@ -14,9 +14,9 @@ const isEven = (num) => {
 };
 
 const getExpression = () => {
-  const number = getNumber();
-  const result = isEven(number) ? 'yes' : 'no';
-  return { number, result };
+  const expression = getNumber();
+  const result = isEven(expression) ? 'yes' : 'no';
+  return { expression, result };
 };
 
 const game = () => {
