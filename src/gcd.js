@@ -23,8 +23,9 @@ const getNumbers = () => {
 };
 
 const getExpression = () => {
-  const expression = getNumbers();
-  const result = findGCD(expression);
+  const numbers = getNumbers();
+  const result = findGCD(numbers);
+  const expression = numbers.join(' ');
   return { expression, result };
 };
 
